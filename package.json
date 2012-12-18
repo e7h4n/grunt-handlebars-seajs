@@ -1,0 +1,41 @@
+{
+  "name": "grunt-handlebars-seajs",
+  "description": "Precompile handlebars template to SeaJS module.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/pw/grunt-handlebars-seajs",
+  "author": {
+    "name": "perfectworks",
+    "email": "perfectworks@gmail.com",
+    "url": "http://lostjs.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pw/grunt-handlebars-seajs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pw/grunt-handlebars-seajs/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/pw/grunt-handlebars-seajs/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  },
+  "dependencies": {
+    "handlebars": "*"
+  },
+  "keywords": [
+    "gruntplugin",
+    "handlebars"
+  ]
+}
