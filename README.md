@@ -21,7 +21,8 @@ _(Coming soon)_
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
 ## Release History
-_(Nothing yet)_
+`2013-01-05` Grunt 0.4.0 support.
+`2012-12-18` First Release
 
 ## License
 Copyright (c) 2012 perfectworks  

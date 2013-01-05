@@ -3,15 +3,8 @@ module.exports = function (grunt) {
 
     // Project configuration.
     grunt.initConfig({
-        test: {
-            files: ['test/**/*.js']
-        },
         lint: {
-            files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
-        },
-        watch: {
-            files: '<config:lint.files>',
-            tasks: 'default'
+            files: ['Gruntfile.js', 'tasks/**/*.js']
         },
         jshint: {
             options: {
@@ -27,14 +20,15 @@ module.exports = function (grunt) {
                 eqnull: true,
                 node: true,
                 es5: true
-            },
-            globals: {}
+            }
         }
     });
 
     // Load local tasks.
     grunt.loadTasks('tasks');
 
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+
     // Default task.
-    grunt.registerTask('default', 'lint test');
+    grunt.registerTask('default', ['jshint']);
 };
