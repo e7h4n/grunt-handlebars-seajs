@@ -12,6 +12,16 @@ module.exports = function (grunt) {
     var path = require('path');
     var handlebars = require('handlebars');
 
+    function expandFiles(param) {
+        if (grunt.file.expand) {
+            return grunt.file.expand({
+                filter: 'isFile'
+            }, param);
+        }
+
+        return grunt.file.expandFiles(param);
+    }
+
     /**
      * Convert mustache template file to javascript script.
      */
@@ -49,7 +59,7 @@ module.exports = function (grunt) {
         files = files.forEach ? files : [files];
 
         files.forEach(function (file) {
-            grunt.file.expandFiles(src + file).forEach(function (path) {
+            expandFiles(src + file).forEach(function (path) {
                 var result = generateTemplate(path, src, templateModule);
 
                 var output = path.replace(src, dest) + '.js';
