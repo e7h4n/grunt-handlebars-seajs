@@ -50,29 +50,18 @@ module.exports = function (grunt) {
     }
 
     grunt.registerMultiTask('handlebars', 'Compile handlebars template to SeaJS module.', function (arg1, arg2) {
-        var config = this.data;
-        var src = config.src;
-        var dest = config.dest;
-        var files = config.files;
-        var templateModule = config.templateModule;
+        var options = this.options();
 
-        files = files.forEach ? files : [files];
+        this.files.forEach(function (file) {
+            var src = file.src[0];
+            var dest = file.dest;
 
-        files.forEach(function (file) {
-            expandFiles(src + file).forEach(function (path) {
-                var result = generateTemplate(path, src, templateModule);
+            var result = generateTemplate(src, file.orig.cwd, options.templateModule);
 
-                var output = path.replace(src, dest) + '.js';
+            grunt.file.write(file.dest, result);
 
-                grunt.file.write(output, result);
-
-                if (this.errorCount) {
-                    return false;
-                }
-
-                grunt.log.writeln('File ' + output.cyan + ' created.');
-            }, this);
-        }, this);
+            grunt.log.writeln('File ' + file.dest.cyan + ' created.');
+        });
     });
 
 };
